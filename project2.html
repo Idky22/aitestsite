@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enterprise GitOps CI/CD Pipeline – Jon Steger DevOps case study on automated deployment using ArgoCD and GitHub Actions." />
+  <title>GitOps Pipeline – Jon Steger</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">JS</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#projects" class="active">Projects</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="project1.html">Zero-Downtime K8s Migration</a>
+            <a href="project2.html" class="active">GitOps CI/CD Pipeline</a>
+            <a href="project3.html">Cloud Cost Optimization</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="https://github.com/idunnowhy22" target="_blank" rel="noopener" class="btn btn-outline" style="padding:0.4rem 1rem;border-radius:100px;font-size:0.85rem;">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="project1.html">↳ Zero-Downtime K8s Migration</a>
+    <a href="project2.html">↳ GitOps CI/CD Pipeline</a>
+    <a href="project3.html">↳ Cloud Cost Optimization</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="project-hero">
+    <div class="project-hero-img proj-hero-bg-2">
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.38">
+        <defs>
+          <pattern id="grid2" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#4da6ff" stroke-width="0.4"/>
+          </pattern>
+          <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#1a6cf6"/>
+          </marker>
+        </defs>
+        <rect width="900" height="420" fill="url(#grid2)"/>
+
+        <!-- Pipeline stages -->
+        <!-- Stage 1: Code -->
+        <rect x="40" y="170" width="110" height="80" rx="10" fill="rgba(26,108,246,0.15)" stroke="#1a6cf6" stroke-width="1.5"/>
+        <text x="95" y="202" text-anchor="middle" fill="#4da6ff" font-size="11" font-family="monospace" font-weight="bold">CODE</text>
+        <text x="95" y="220" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">git push</text>
+        <text x="95" y="235" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">main branch</text>
+        <!-- Arrow -->
+        <line x1="150" y1="210" x2="195" y2="210" stroke="#1a6cf6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+        <!-- Stage 2: Build -->
+        <rect x="200" y="170" width="110" height="80" rx="10" fill="rgba(26,108,246,0.15)" stroke="#1a6cf6" stroke-width="1.5"/>
+        <text x="255" y="202" text-anchor="middle" fill="#4da6ff" font-size="11" font-family="monospace" font-weight="bold">BUILD</text>
+        <text x="255" y="220" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Docker build</text>
+        <text x="255" y="235" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Tests + Lint</text>
+        <line x1="310" y1="210" x2="355" y2="210" stroke="#1a6cf6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+        <!-- Stage 3: Test -->
+        <rect x="360" y="170" width="110" height="80" rx="10" fill="rgba(26,108,246,0.15)" stroke="#1a6cf6" stroke-width="1.5"/>
+        <text x="415" y="202" text-anchor="middle" fill="#4da6ff" font-size="11" font-family="monospace" font-weight="bold">TEST</text>
+        <text x="415" y="220" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Integration</text>
+        <text x="415" y="235" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Security scan</text>
+        <line x1="470" y1="210" x2="515" y2="210" stroke="#1a6cf6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+        <!-- Stage 4: Publish -->
+        <rect x="520" y="170" width="110" height="80" rx="10" fill="rgba(26,108,246,0.15)" stroke="#1a6cf6" stroke-width="1.5"/>
+        <text x="575" y="202" text-anchor="middle" fill="#4da6ff" font-size="11" font-family="monospace" font-weight="bold">PUBLISH</text>
+        <text x="575" y="220" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">ECR push</text>
+        <text x="575" y="235" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Tag: sha-abc123</text>
+        <line x1="630" y1="210" x2="675" y2="210" stroke="#1a6cf6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+        <!-- Stage 5: Deploy -->
+        <rect x="680" y="170" width="110" height="80" rx="10" fill="rgba(0,212,255,0.12)" stroke="#00d4ff" stroke-width="2"/>
+        <text x="735" y="202" text-anchor="middle" fill="#00d4ff" font-size="11" font-family="monospace" font-weight="bold">DEPLOY</text>
+        <text x="735" y="220" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">ArgoCD sync</text>
+        <text x="735" y="235" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">K8s rolling</text>
+
+        <!-- Top labels -->
+        <text x="95" y="155" text-anchor="middle" fill="#4da6ff" font-size="9" font-family="monospace" opacity="0.7">GitHub</text>
+        <text x="255" y="155" text-anchor="middle" fill="#4da6ff" font-size="9" font-family="monospace" opacity="0.7">Actions</text>
+        <text x="415" y="155" text-anchor="middle" fill="#4da6ff" font-size="9" font-family="monospace" opacity="0.7">Actions</text>
+        <text x="575" y="155" text-anchor="middle" fill="#4da6ff" font-size="9" font-family="monospace" opacity="0.7">ECR</text>
+        <text x="735" y="155" text-anchor="middle" fill="#00d4ff" font-size="9" font-family="monospace" opacity="0.9">ArgoCD</text>
+
+        <!-- Duration bar -->
+        <rect x="40" y="280" width="750" height="6" rx="3" fill="rgba(26,108,246,0.15)" stroke="none"/>
+        <rect x="40" y="280" width="750" height="6" rx="3" fill="none" stroke="#1a6cf6" stroke-width="1" opacity="0.3"/>
+        <text x="415" y="305" text-anchor="middle" fill="#8eadd4" font-size="10" font-family="monospace" opacity="0.7">Total pipeline time: ~3m 45s (down from 45 minutes)</text>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="project-hero-content">
+        <a href="index.html#projects" class="back-link">Back to Projects</a>
+        <span class="proj-tag">CI/CD · Automation · Developer Experience</span>
+        <h1>Automated Deployment Pipeline</h1>
+        <p class="subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <div class="project-content fade-in">
+
+          <h2>Project Overview</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          <h2>The Problem</h2>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <ul>
+            <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</li>
+            <li>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur</li>
+            <li>Ut labore et dolore magnam aliquam quaerat voluptatem minima veniam nostrum</li>
+            <li>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam</li>
+          </ul>
+
+          <h2>Architecture: The GitOps Model</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+
+          <div class="code-block">
+# Placeholder workflow example
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t placeholder:${{ github.sha }} .
+      - name: Deploy
+        run: echo "Deploying placeholder..."</div>
+
+          <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit voluptate.</p>
+
+          <h2>Developer Experience Improvements</h2>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
+          <ul>
+            <li>Similique sunt in culpa qui officia deserunt mollitia animi id est laborum</li>
+            <li>Et harum quidem rerum facilis est et expedita distinctio nam libero tempore</li>
+            <li>Temporibus autem quibusdam et aut officiis debitis rerum necessitatibus saepe</li>
+            <li>Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus</li>
+          </ul>
+
+          <div class="result-badge">Lorem ipsum dolor sit amet consectetur adipiscing elit</div>
+          <div class="result-badge">Sed do eiusmod tempor incididunt ut labore et dolore</div>
+          <div class="result-badge">Quis nostrud exercitation ullamco laboris nisi aliquip</div>
+
+          <h2>Results & Impact</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint molestiae non recusandae itaque earum.</p>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="project-sidebar fade-in" data-delay="200">
+          <div class="info-card">
+            <h4>Project Details</h4>
+            <div class="info-item"><span>Role</span><span>Solo / Team Project</span></div>
+            <div class="info-item"><span>Duration</span><span>TBD</span></div>
+            <div class="info-item"><span>Year</span><span>2025</span></div>
+            <div class="info-item"><span>Context</span><span>Academic / Personal</span></div>
+          </div>
+
+          <div class="info-card">
+            <h4>Tech Stack</h4>
+            <div class="tech-stack">
+              <span class="tech-badge">GitHub Actions</span>
+              <span class="tech-badge">ArgoCD</span>
+              <span class="tech-badge">Argo Rollouts</span>
+              <span class="tech-badge">Amazon ECR</span>
+              <span class="tech-badge">Helm</span>
+              <span class="tech-badge">Trivy</span>
+              <span class="tech-badge">Datadog</span>
+              <span class="tech-badge">Slack API</span>
+              <span class="tech-badge">Terraform</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>Key Results</h4>
+            <div class="info-item"><span>Lorem ipsum</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Dolor sit</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Amet consec</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Adipiscing</span><span style="color:#00d4ff;">TBD</span></div>
+          </div>
+
+          <a href="index.html#projects" class="btn btn-outline" style="width:100%;justify-content:center;">← All Projects</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>Jon Steger</span> · <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">@idunnowhy22</a></p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

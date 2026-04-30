@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Multi-Cloud Cost Optimization – Jon Steger DevOps case study on FinOps practices and cloud spend reduction across AWS and GCP." />
+  <title>Cloud Cost Optimization – Jon Steger</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">JS</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#projects" class="active">Projects</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="project1.html">Zero-Downtime K8s Migration</a>
+            <a href="project2.html">GitOps CI/CD Pipeline</a>
+            <a href="project3.html" class="active">Cloud Cost Optimization</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="https://github.com/idunnowhy22" target="_blank" rel="noopener" class="btn btn-outline" style="padding:0.4rem 1rem;border-radius:100px;font-size:0.85rem;">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="project1.html">↳ Zero-Downtime K8s Migration</a>
+    <a href="project2.html">↳ GitOps CI/CD Pipeline</a>
+    <a href="project3.html">↳ Cloud Cost Optimization</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="project-hero">
+    <div class="project-hero-img proj-hero-bg-3">
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.38">
+        <defs>
+          <pattern id="grid3" width="45" height="45" patternUnits="userSpaceOnUse">
+            <path d="M 45 0 L 0 0 0 45" fill="none" stroke="#4da6ff" stroke-width="0.4"/>
+          </pattern>
+        </defs>
+        <rect width="900" height="420" fill="url(#grid3)"/>
+
+        <!-- Cost bar chart showing reduction -->
+        <!-- Month labels -->
+        <text x="100" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Jan</text>
+        <text x="180" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Feb</text>
+        <text x="260" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Mar</text>
+        <text x="340" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Apr</text>
+        <text x="420" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">May ▸ Phase 1</text>
+        <text x="540" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Jun</text>
+        <text x="620" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Jul ▸ Phase 2</text>
+        <text x="720" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Aug</text>
+        <text x="800" y="360" text-anchor="middle" fill="#8eadd4" font-size="9" font-family="monospace">Sep</text>
+
+        <!-- Bars: before optimization (tall, red-tinted blue) -->
+        <rect x="65" y="120" width="70" height="220" rx="4" fill="rgba(26,108,246,0.35)" stroke="#1a6cf6" stroke-width="1"/>
+        <rect x="145" y="115" width="70" height="225" rx="4" fill="rgba(26,108,246,0.35)" stroke="#1a6cf6" stroke-width="1"/>
+        <rect x="225" y="118" width="70" height="222" rx="4" fill="rgba(26,108,246,0.35)" stroke="#1a6cf6" stroke-width="1"/>
+        <rect x="305" y="112" width="70" height="228" rx="4" fill="rgba(26,108,246,0.35)" stroke="#1a6cf6" stroke-width="1"/>
+        <!-- Phase 1 transition -->
+        <rect x="385" y="140" width="70" height="200" rx="4" fill="rgba(0,212,255,0.25)" stroke="#00d4ff" stroke-width="1.5"/>
+        <!-- Continued savings -->
+        <rect x="505" y="195" width="70" height="145" rx="4" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5"/>
+        <!-- Phase 2 -->
+        <rect x="585" y="220" width="70" height="120" rx="4" fill="rgba(0,212,255,0.4)" stroke="#00d4ff" stroke-width="2"/>
+        <rect x="685" y="250" width="70" height="90" rx="4" fill="rgba(0,212,255,0.45)" stroke="#00d4ff" stroke-width="2"/>
+        <rect x="765" y="260" width="70" height="80" rx="4" fill="rgba(0,212,255,0.5)" stroke="#00d4ff" stroke-width="2"/>
+
+        <!-- Y-axis labels -->
+        <text x="45" y="124" text-anchor="end" fill="#8eadd4" font-size="9" font-family="monospace">$180K</text>
+        <text x="45" y="210" text-anchor="end" fill="#8eadd4" font-size="9" font-family="monospace">$120K</text>
+        <text x="45" y="300" text-anchor="end" fill="#8eadd4" font-size="9" font-family="monospace">$60K</text>
+
+        <!-- Baseline and target lines -->
+        <line x1="50" y1="340" x2="850" y2="340" stroke="#4da6ff" stroke-width="1" opacity="0.3"/>
+        <line x1="50" y1="120" x2="850" y2="120" stroke="#1a6cf6" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
+        <line x1="50" y1="268" x2="850" y2="268" stroke="#00d4ff" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
+
+        <!-- Labels -->
+        <text x="460" y="98" text-anchor="middle" fill="#1a6cf6" font-size="10" font-family="monospace" opacity="0.8">— Baseline spend</text>
+        <text x="460" y="258" text-anchor="middle" fill="#00d4ff" font-size="10" font-family="monospace" opacity="0.8">— Target ($60K)</text>
+        <text x="800" y="248" text-anchor="middle" fill="#00d4ff" font-size="10" font-family="monospace" font-weight="bold">$52K ✓</text>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="project-hero-content">
+        <a href="index.html#projects" class="back-link">Back to Projects</a>
+        <span class="proj-tag">Cloud · Infrastructure as Code · Terraform</span>
+        <h1>Cloud Infrastructure Provisioning</h1>
+        <p class="subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor
+          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <div class="project-content fade-in">
+
+          <h2>Project Overview</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          <h2>Diagnostic Phase</h2>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo.</p>
+          <ul>
+            <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</li>
+            <li>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur</li>
+            <li>Ut labore et dolore magnam aliquam quaerat voluptatem minima veniam nostrum</li>
+            <li>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam</li>
+            <li>At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesentium</li>
+            <li>Similique sunt in culpa qui officia deserunt mollitia animi id est laborum fuga</li>
+          </ul>
+
+          <h2>Phase 1: Implementation</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+
+          <div class="code-block">
+# Placeholder Terraform example
+resource "aws_instance" "placeholder" {
+  ami           = "ami-00000000"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name        = "placeholder-instance"
+    Environment = "dev"
+    Project     = "lorem-ipsum"
+  }
+}</div>
+
+          <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui voluptate velit.</p>
+
+          <h2>Phase 2: Optimization</h2>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
+          <ul>
+            <li>Et harum quidem rerum facilis est et expedita distinctio nam libero tempore</li>
+            <li>Temporibus autem quibusdam et aut officiis debitis rerum necessitatibus saepe</li>
+            <li>Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus</li>
+          </ul>
+
+          <div class="result-badge">Lorem ipsum dolor sit amet consectetur adipiscing elit</div>
+          <div class="result-badge">Sed do eiusmod tempor incididunt ut labore et dolore</div>
+          <div class="result-badge">Ut enim ad minim veniam quis nostrud exercitation aliquip</div>
+
+          <h2>Sustaining the Work</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+          <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat ut perspiciatis unde omnis iste natus.</p>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="project-sidebar fade-in" data-delay="200">
+          <div class="info-card">
+            <h4>Project Details</h4>
+            <div class="info-item"><span>Role</span><span>Solo / Team Project</span></div>
+            <div class="info-item"><span>Duration</span><span>TBD</span></div>
+            <div class="info-item"><span>Year</span><span>2025</span></div>
+            <div class="info-item"><span>Context</span><span>Academic / Personal</span></div>
+          </div>
+
+          <div class="info-card">
+            <h4>Tech Stack</h4>
+            <div class="tech-stack">
+              <span class="tech-badge">AWS Cost Explorer</span>
+              <span class="tech-badge">GCP BigQuery</span>
+              <span class="tech-badge">Terraform</span>
+              <span class="tech-badge">Lambda</span>
+              <span class="tech-badge">CloudWatch</span>
+              <span class="tech-badge">Grafana</span>
+              <span class="tech-badge">Spot Instances</span>
+              <span class="tech-badge">Savings Plans</span>
+              <span class="tech-badge">CloudFront</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>Key Results</h4>
+            <div class="info-item"><span>Lorem ipsum</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Dolor sit</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Amet consec</span><span style="color:#00d4ff;">TBD</span></div>
+            <div class="info-item"><span>Adipiscing</span><span style="color:#00d4ff;">TBD</span></div>
+          </div>
+
+          <a href="index.html#projects" class="btn btn-outline" style="width:100%;justify-content:center;">← All Projects</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>Jon Steger</span> · <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">@idunnowhy22</a></p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

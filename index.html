@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jon Steger – DevOps Engineer specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, and platform engineering." />
+  <meta name="keywords" content="DevOps, Cloud Engineer, Kubernetes, CI/CD, Jon Steger, AWS, Terraform, Site Reliability" />
+  <meta name="author" content="Jon Steger" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jon Steger – DevOps Engineer" />
+  <meta property="og:description" content="Platform engineer specializing in cloud infrastructure, CI/CD, and Kubernetes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://notarealsite.com" />
+
+  <title>Jon Steger – DevOps Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════ NAV ══════════════════════════════ -->
+  <nav>
+    <a href="#" class="nav-logo">JS</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#projects">Projects</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="project1.html">Zero-Downtime K8s Migration</a>
+            <a href="project2.html">GitOps CI/CD Pipeline</a>
+            <a href="project3.html">Cloud Cost Optimization</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://github.com/idunnowhy22" target="_blank" rel="noopener" class="btn btn-outline" style="padding:0.4rem 1rem;border-radius:100px;font-size:0.85rem;">GitHub ↗</a></li>
+    </ul>
+
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="project1.html">↳ Zero-Downtime K8s Migration</a>
+    <a href="project2.html">↳ GitOps CI/CD Pipeline</a>
+    <a href="project3.html">↳ Cloud Cost Optimization</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Available for new opportunities</div>
+        <h1>
+          <span class="gradient-text">Jon Steger</span><br/>
+          <span class="typewriter"></span><span style="opacity:0.4;color:var(--sky)">|</span>
+        </h1>
+        <p class="hero-subtitle">
+          I build resilient cloud infrastructure, automate deployments at scale,
+          and bridge the gap between development teams and production environments.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Avatar -->
+        <div class="about-avatar-wrap fade-in">
+          <div class="avatar-ring">
+            <div class="avatar-inner">JS</div>
+          </div>
+          <div class="about-badge">DevOps · Platform Engineering</div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content">
+          <div class="section-label">About Me</div>
+          <h3>Computer Science student with a passion for DevOps & cloud</h3>
+          <p>
+            I'm a Computer Science student actively learning and building skills in
+            DevOps, cloud infrastructure, and automation. I enjoy solving problems
+            at the intersection of software engineering and systems thinking.
+          </p>
+          <p>
+            Through coursework, personal projects, and self-study, I've been exploring
+            tools like Docker, Kubernetes, and CI/CD pipelines. I'm looking for
+            opportunities to apply and grow these skills in a real-world environment.
+          </p>
+          <p>
+            Outside of class I tinker with home lab setups, contribute to open-source
+            projects on GitHub, and stay current with the evolving DevOps landscape.
+          </p>
+
+          <!-- Skills -->
+          <div class="skills-grid">
+            <span class="skill-tag">Kubernetes (K8s)</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">AWS / GCP / Azure</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Bash / Shell</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Datadog</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">GitOps</span>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-item">
+              <div class="stat-num">3rd</div>
+              <div class="stat-label">Year CS Student</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Personal Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">2027</div>
+              <div class="stat-label">Expected Graduation</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ PROJECTS ══════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Featured Work</div>
+        <h2>Projects & <span class="gradient-text">Case Studies</span></h2>
+        <p>A selection of infrastructure challenges I've tackled — each one pushing
+           reliability, efficiency, or developer experience forward.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Card 1 -->
+        <div class="project-card fade-in" data-delay="0">
+          <div class="card-thumb card-thumb-1">⎈</div>
+          <div class="card-body">
+            <div class="card-tag">Kubernetes · Infrastructure</div>
+            <h3>Container Orchestration Lab</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+            <a href="project1.html" class="card-link">View case study</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card fade-in" data-delay="120">
+          <div class="card-thumb card-thumb-2">⚙</div>
+          <div class="card-body">
+            <div class="card-tag">CI/CD · Automation</div>
+            <h3>Automated Deployment Pipeline</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip.</p>
+            <a href="project2.html" class="card-link">View case study</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card fade-in" data-delay="240">
+          <div class="card-thumb card-thumb-3">☁</div>
+          <div class="card-body">
+            <div class="card-tag">Cloud · Infrastructure as Code</div>
+            <h3>Cloud Infrastructure Provisioning</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>
+            <a href="project3.html" class="card-link">View case study</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Get In Touch</div>
+        <h2>Let's <span class="gradient-text">Work Together</span></h2>
+        <p>Have a project in mind, or just want to connect? I'm always open to
+           interesting infrastructure challenges.</p>
+      </div>
+
+      <div class="contact-inner">
+        <!-- Info -->
+        <div class="contact-info fade-in">
+          <h3>Contact Info</h3>
+          <p>Reach out through any of the channels below — I typically respond within 24 hours.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div class="contact-text">
+              <span>Email</span>
+              <a href="mailto:cool@email.com">cool@email.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-text">
+              <span>Website</span>
+              <a href="https://notarealsite.com" target="_blank" rel="noopener">notarealsite.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">⌨</div>
+            <div class="contact-text">
+              <span>GitHub</span>
+              <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">@idunnowhy22</a>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener" class="social-btn">⌨ GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn">in LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn">𝕏 Twitter/X</a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="contact-form fade-in" data-delay="150">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="What's this about?" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="5" placeholder="Tell me about your project or just say hello..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>Jon Steger</span> · Built with precision · <a href="https://github.com/idunnowhy22" target="_blank" rel="noopener">@idunnowhy22</a></p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
