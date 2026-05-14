@@ -287,6 +287,32 @@ nav {
   color: var(--sky);
 }
 
+.hero h1 {
+  position: relative;
+  padding-bottom: 1.3em;
+}
+
+.typewriter-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  white-space: nowrap;
+  font-size: 1em;
+  line-height: 1.15;
+  color: var(--sky);
+}
+
+.cursor {
+  opacity: 0.4;
+  color: var(--sky);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0; }
+}
+
 .hero-subtitle {
   font-size: 1.2rem;
   color: var(--muted);
