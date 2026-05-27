@@ -40,7 +40,4 @@ jobs:
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
         uses: actions/deploy-pages@v4
-=======
->>>>>>> 8ddfc5816cda04bdf9cd74d2896cd60fc72bfa17
